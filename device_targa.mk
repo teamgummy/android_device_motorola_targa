@@ -125,9 +125,27 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     FileManager \
     AndroidTerm \
-    DSPManager \
-    UserDictionaryProvider
-
+    UserDictionaryProvider \
+    LatinIME \
+    Superuser \
+    Superuser.apk \
+    su
+    
+# Optional packages
+PRODUCT_PACKAGES += \
+    VideoEditor \
+    VoiceDialer \
+    Basic \
+    HoloSpiralWallpaper \
+    MagicSmokeWallpapers \
+    NoiseField \
+    Galaxy4 \
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    VisualizationWallpapers \
+    PhaseBeam \
+    librs_jni
+    
 # Rootfs files
 PRODUCT_COPY_FILES += \
     out/target/product/targa/root/init:system/etc/rootfs/init \
@@ -201,11 +219,7 @@ PRODUCT_COPY_FILES += \
     device/motorola/targa/prebuilt/imgtec/libsrv_um.so:system/lib/libsrv_um.so \
     device/motorola/targa/prebuilt/imgtec/libusc.so:system/lib/libusc.so \
     device/motorola/targa/prebuilt/imgtec/libdrm.so:system/lib/libdrm.so \
-
-FRAMEWORKS_BASE_SUBDIRS += \  	
-    $(addsuffix /java, omapmmlib)
- 	
-
+	
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
