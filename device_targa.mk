@@ -18,7 +18,7 @@ PRODUCT_PACKAGES := \
     charger \
     charger_res_images
 
-# Audio sucks currently.  Moto customized alsa_sound and while I'm working it out, I'll use phone libs.  blech.
+# Audio
 PRODUCT_COPY_FILES += \
     device/motorola/targa/audio/acoustics.default.so:/system/lib/hw/acoustics.targa.so \
     device/motorola/targa/audio/alsa.omap4.so:/system/lib/hw/alsa.targa.so \
@@ -32,19 +32,16 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/motorola/targa/prebuilt/imgtec/gralloc.omap4.so:system/lib/hw/gralloc.omap4.so \
 
-# Lights
+# Hardware HALs
 #PRODUCT_PACKAGES += \
-#    lights.targa 
-
-# Sensors
-#PRODUCT_PACKAGES += \
+#    lights.targa \
 #    sensors.targa \
 #    IMSCServer \
 
 PRODUCT_PACKAGES += \
-    audio_policy.targa \
-    audio.primary.targa
-    
+    audio.primary.targa \
+    audio_policy.targa 
+
 # Modem
 PRODUCT_PACKAGES += \
     Stk \
@@ -120,7 +117,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     librs_jni \
-    com.android.future.usb.accessory
+    com.android.future.usb.accessory \
+    libjni_pinyinime \
 
 PRODUCT_PACKAGES += \
     FileManager \
@@ -143,9 +141,9 @@ PRODUCT_PACKAGES += \
     LiveWallpapers \
     LiveWallpapersPicker \
     VisualizationWallpapers \
-    PhaseBeam \
-    librs_jni
-    
+    PhaseBeam 
+
+
 # Rootfs files
 PRODUCT_COPY_FILES += \
     out/target/product/targa/root/init:system/etc/rootfs/init \
@@ -219,7 +217,7 @@ PRODUCT_COPY_FILES += \
     device/motorola/targa/prebuilt/imgtec/libsrv_um.so:system/lib/libsrv_um.so \
     device/motorola/targa/prebuilt/imgtec/libusc.so:system/lib/libusc.so \
     device/motorola/targa/prebuilt/imgtec/libdrm.so:system/lib/libdrm.so \
-	
+
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
