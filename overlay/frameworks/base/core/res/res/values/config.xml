@@ -23,9 +23,9 @@
 
     <!-- Default color for notification LED is white. -->
     <color name="config_defaultNotificationColor">#ffffffff</color>
-    
+
     <!-- Default value for led color when battery is fully charged -->
-    <integer name="config_notificationsBatteryFullARGB">0xFF00FF00</integer>
+    <integer name="config_notificationsBatteryFullARGB">0x00000000</integer>
 
     <!-- Default LED on time for notification LED in milliseconds. -->
     <integer name="config_defaultNotificationLedOn">1000</integer>
@@ -167,7 +167,7 @@
         <item>"0,1"</item>
         <item>"7,1"</item>
     </string-array>
-    
+
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
          USB interfaces.  If the device doesn't want to support tething over USB this should
          be empty.  An example would be "usb.*" -->
@@ -189,8 +189,8 @@
         <!-- <item>"bnep\\d"</item> -->
     </string-array>
     
-    <!-- Regex of wired ethernet ifaces -->
-    <string translatable="false" name="config_ethernet_iface_regex">eth\\d</string>
+    <!-- Regex of wired ethernet ifaces
+    <string translatable="false" name="config_ethernet_iface_regex">eth\\d</string> -->
 
     <!-- Array of ConnectivityManager.TYPE_xxxx values allowable for tethering -->
     <!-- Common options are [1, 4] for TYPE_WIFI and TYPE_MOBILE_DUN or

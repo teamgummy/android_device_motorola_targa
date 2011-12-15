@@ -487,8 +487,9 @@ on boot
 #    insmod /system/lib/modules/xt_TRACE.ko
 #    insmod /system/lib/modules/xt_NFQUEUE.ko
 #    insmod /system/lib/modules/xt_qtaguid.ko
-    insmod /system/lib/modules/xt_quota2.ko
     insmod /system/lib/modules/xt_owner2.ko
+    insmod /system/lib/modules/xt_quota2.ko
+
 # Enable hardware watchdog
     write /sys/devices/platform/omap_wdt/enabled on
 # Start services
@@ -610,14 +611,14 @@ service rild_tcmd /system/bin/rild_tcmd
 
 service battd /system/bin/battd
     class core
-    socket battdsock stream 0660 mot_accy mot_accy
+    socket battdsock stream 0666 mot_accy mot_accy
     user root
     group mot_accy mot_pwric
     oneshot
 
-service catcommands /system/bin/catcommands
-    class core
-    group radio
+#service catcommands /system/bin/catcommands
+#    class core
+#    group radio
 
 service whisperd /system/bin/whisperd /dev/ttyO1
     class late_start
@@ -651,11 +652,11 @@ service uim /system/bin/uim-sysfs
     group media bluetooth
     oneshot
 
-service hostapd /system/bin/logwrapper /system/bin/Hostapd /data/misc/wifi/hostapd.conf
-    class late_start
-    socket hostapd_tiap0 dgram 660 wifi wifi
-    disabled
-    oneshot
+#service hostapd /system/bin/logwrapper /system/bin/Hostapd /data/misc/wifi/hostapd.conf
+#    class late_start
+#    socket hostapd_tiap0 dgram 660 wifi wifi
+#    disabled
+#    oneshot
 
 service hciattach /system/bin/hciattach -l
     class late_start
@@ -833,6 +834,10 @@ service smc /system/bin/startup_smc.sh
     disabled
     oneshot
 
+service modemlog /system/bin/modemlog
+    class core
+    oneshot
+
 service locDrv /system/usr/bin/brcm_guci_drv -config /system/etc/gpsconfig.xml
     class late_start
     user radio
@@ -841,10 +846,6 @@ service locDrv /system/usr/bin/brcm_guci_drv -config /system/etc/gpsconfig.xml
 service pm_init /system/bin/sh /system/usr/bin/pm_init.sh
     class late_start
     oneshot
-
-service modemlog /system/bin/modemlog
-   class core
-   oneshot
 
 service gkilogd /system/bin/gkilogd
     class late_start
