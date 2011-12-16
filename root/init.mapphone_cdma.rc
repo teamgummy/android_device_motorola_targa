@@ -721,11 +721,11 @@ service uim /system/bin/uim-sysfs
     group media bluetooth
     oneshot
 
-#service hostapd /system/bin/logwrapper /system/bin/Hostapd /data/misc/wifi/hostapd.conf
-#    class late_start
-#    socket hostapd_tiap0 dgram 660 wifi wifi
-#    disabled
-#    oneshot
+service hostapd /system/bin/logwrapper /system/bin/Hostapd /data/misc/wifi/hostapd.conf
+    class late_start
+    socket hostapd_tiap0 dgram 660 wifi wifi
+    disabled
+    oneshot
 
 service hciattach /system/bin/hciattach -l
     class late_start
