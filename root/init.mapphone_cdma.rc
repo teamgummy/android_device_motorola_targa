@@ -559,7 +559,7 @@ on boot
     insmod /system/lib/modules/em_u32.ko
 
 # Load Authentec VPN kernel module
-#    insmod /system/lib/modules/vpnclient.ko
+    insmod /system/lib/modules/vpnclient.ko
 
 # Load Quota2 support modules
 #    insmod /system/lib/modules/ip6_tables.ko
@@ -721,11 +721,11 @@ service uim /system/bin/uim-sysfs
     group media bluetooth
     oneshot
 
-service hostapd /system/bin/logwrapper /system/bin/Hostapd /data/misc/wifi/hostapd.conf
-    class late_start
-    socket hostapd_tiap0 dgram 660 wifi wifi
-    disabled
-    oneshot
+#service hostapd /system/bin/logwrapper /system/bin/Hostapd /data/misc/wifi/hostapd.conf
+#    class late_start
+#    socket hostapd_tiap0 dgram 660 wifi wifi
+#    disabled
+#    oneshot
 
 service hciattach /system/bin/hciattach -l
     class late_start
