@@ -14,17 +14,17 @@ PRODUCT_COPY_FILES += \
     device/motorola/targa/root/init.mapphone_cdma.rc:system/etc/rootfs/init.mapphone_cdma.rc \
     device/motorola/targa/root/init.mapphone_umts.rc:system/etc/rootfs/init.mapphone_umts.rc \
     device/motorola/targa/root/ueventd.rc:system/etc/rootfs/ueventd.rc \
-    out/target/product/spyder/root/sbin/adbd:system/etc/rootfs/sbin/adbd \
+    out/target/product/targa/root/sbin/adbd:system/etc/rootfs/sbin/adbd \
     device/motorola/targa/root/ueventd.mapphone_cdma.rc:system/etc/rootfs/ueventd.mapphone_cdma.rc \
     device/motorola/targa/root/ueventd.mapphone_umts.rc:system/etc/rootfs/ueventd.mapphone_umts.rc
 
 # Hijack files
 PRODUCT_COPY_FILES += \
-    device/motorola/spyder/root/default.prop:root/default.prop \
-    device/motorola/spyder/root-hijack/init.rc:root/init.rc \
-    device/motorola/spyder/root-hijack/init.mapphone_cdma.rc:root/init.mapphone_cdma.rc \
-    device/motorola/spyder/root-hijack/init.mapphone_umts.rc:root/init.mapphone_umts.rc \
-    device/motorola/spyder/root/ueventd.rc:root/ueventd.rc \
+    device/motorola/targa/root/default.prop:root/default.prop \
+    device/motorola/targa/root-hijack/init.rc:root/init.rc \
+    device/motorola/targa/root-hijack/init.mapphone_cdma.rc:root/init.mapphone_cdma.rc \
+    device/motorola/targa/root-hijack/init.mapphone_umts.rc:root/init.mapphone_umts.rc \
+    device/motorola/targa/root/ueventd.rc:root/ueventd.rc \
 ## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 
 # Device overlay
