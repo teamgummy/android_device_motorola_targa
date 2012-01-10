@@ -8,15 +8,23 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 # Rootfs files
 PRODUCT_COPY_FILES += \
-    device/motorola/targa/root/init:system/etc/rootfs/init \
+    out/target/product/targa/root/init:system/etc/rootfs/init \
     device/motorola/targa/root/default.prop:system/etc/rootfs/default.prop \
     device/motorola/targa/root/init.rc:system/etc/rootfs/init.rc \
     device/motorola/targa/root/init.mapphone_cdma.rc:system/etc/rootfs/init.mapphone_cdma.rc \
     device/motorola/targa/root/init.mapphone_umts.rc:system/etc/rootfs/init.mapphone_umts.rc \
     device/motorola/targa/root/ueventd.rc:system/etc/rootfs/ueventd.rc \
+    out/target/product/spyder/root/sbin/adbd:system/etc/rootfs/sbin/adbd \
     device/motorola/targa/root/ueventd.mapphone_cdma.rc:system/etc/rootfs/ueventd.mapphone_cdma.rc \
     device/motorola/targa/root/ueventd.mapphone_umts.rc:system/etc/rootfs/ueventd.mapphone_umts.rc
 
+# Hijack files
+PRODUCT_COPY_FILES += \
+    device/motorola/spyder/root/default.prop:root/default.prop \
+    device/motorola/spyder/root-hijack/init.rc:root/init.rc \
+    device/motorola/spyder/root-hijack/init.mapphone_cdma.rc:root/init.mapphone_cdma.rc \
+    device/motorola/spyder/root-hijack/init.mapphone_umts.rc:root/init.mapphone_umts.rc \
+    device/motorola/spyder/root/ueventd.rc:root/ueventd.rc \
 ## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 
 # Device overlay
@@ -24,17 +32,20 @@ PRODUCT_COPY_FILES += \
 
 # Permissions files
 PRODUCT_COPY_FILES += \
-    device/motorola/targa/prebuilt/etc/permissions/android.hardware.camera.front.xml:/system/etc/permissions/android.hardware.camera.front.xml \
-    device/motorola/targa/prebuilt/etc/permissions/android.hardware.camera.flash-autofocus.xml:/system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
-    device/motorola/targa/prebuilt/etc/permissions/android.hardware.location.gps.xml:/system/etc/permissions/android.hardware.location.gps.xml \
-    device/motorola/targa/prebuilt/etc/permissions/android.hardware.sensor.accelerometer.xml:/system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-    device/motorola/targa/prebuilt/etc/permissions/android.hardware.sensor.light.xml:/system/etc/permissions/android.hardware.sensor.light.xml \
-    device/motorola/targa/prebuilt/etc/permissions/android.hardware.sensor.proximity.xml:/system/etc/permissions/android.hardware.sensor.proximity.xml \
-    device/motorola/targa/prebuilt/etc/permissions/android.hardware.telephony.cdma.xml:/system/etc/permissions/android.hardware.telephony.cdma.xml \
-    device/motorola/targa/prebuilt/etc/permissions/android.hardware.telephony.gsm.xml:/system/etc/permissions/android.hardware.telephony.gsm.xml \
-    device/motorola/targa/prebuilt/etc/permissions/android.hardware.touchscreen.multitouch.xml:/system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
-    device/motorola/targa/prebuilt/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml:/system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
-    device/motorola/targa/prebuilt/etc/permissions/android.hardware.wifi.xml:/system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+    frameworks/base/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+    frameworks/base/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/base/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
+    frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/base/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
+    frameworks/base/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
+    frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml \
+    frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
     device/motorola/targa/prebuilt/etc/permissions/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml \
     device/motorola/targa/prebuilt/etc/permissions/com.android.location.provider.xml:/system/etc/permissions/com.android.location.provider.xml \
     device/motorola/targa/prebuilt/etc/permissions/com.motorola.android.tcmd.xml:/system/etc/permissions/com.motorola.android.tcmd.xml \
@@ -43,10 +54,11 @@ PRODUCT_COPY_FILES += \
     device/motorola/targa/prebuilt/etc/permissions/handheld_core_hardware.xml:/system/etc/permissions/handheld_core_hardware.xml \
     device/motorola/targa/prebuilt/etc/permissions/jcifs-krb5-1.3.12.xml:/system/etc/permissions/jcifs-krb5-1.3.12.xml \
 
-# Prebuilts
-#    device/motorola/targa/prebuilt/app/Usb.apk:system/app/Usb.apk \
 
 PRODUCT_COPY_FILES += \
+    device/motorola/targa/prebuilt/bin/hijack:system/bin/hijack \
+    device/motorola/targa/prebuilt/bin/hijack.log_dump:system/bin/hijack.log_dump \
+    device/motorola/targa/prebuilt/etc/hijack-boot.zip:system/etc/hijack-boot.zip \
     device/motorola/targa/prebuilt/bin/mount_ext3.sh:system/bin/mount_ext3.sh \
     device/motorola/targa/prebuilt/bin/strace:system/bin/strace \
     device/motorola/targa/prebuilt/etc/TICameraCameraProperties.xml:system/etc/TICameraCameraProperties.xml \
@@ -101,8 +113,11 @@ PRODUCT_PACKAGES += \
 
 # Modem
 PRODUCT_PACKAGES += \
+    nc \
+    Stk \
     libaudiomodemgeneric \
     libreference-cdma-sms \
+    radiooptions \
 
 # OMX
 PRODUCT_PACKAGES += \
@@ -252,10 +267,6 @@ PRODUCT_PACKAGES += \
 # Misc Packages
 #    safestrapmenu \
 #    2nd-init \
-
-PRODUCT_PACKAGES += \
-    Usb \
-
 
 FRAMEWORKS_BASE_SUBDIRS += \
     $(addsuffix /java, omapmmlib)
