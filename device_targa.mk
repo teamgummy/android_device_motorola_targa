@@ -25,6 +25,7 @@ PRODUCT_COPY_FILES += \
     device/motorola/targa/root-hijack/init.mapphone_cdma.rc:root/init.mapphone_cdma.rc \
     device/motorola/targa/root-hijack/init.mapphone_umts.rc:root/init.mapphone_umts.rc \
     device/motorola/targa/root/ueventd.rc:root/ueventd.rc \
+
 ## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 
 # Device overlay
@@ -56,9 +57,6 @@ PRODUCT_COPY_FILES += \
 
 
 PRODUCT_COPY_FILES += \
-    device/motorola/targa/prebuilt/bin/hijack:system/bin/hijack \
-    device/motorola/targa/prebuilt/bin/hijack.log_dump:system/bin/hijack.log_dump \
-    device/motorola/targa/prebuilt/etc/hijack-boot.zip:system/etc/hijack-boot.zip \
     device/motorola/targa/prebuilt/bin/mount_ext3.sh:system/bin/mount_ext3.sh \
     device/motorola/targa/prebuilt/bin/strace:system/bin/strace \
     device/motorola/targa/prebuilt/etc/TICameraCameraProperties.xml:system/etc/TICameraCameraProperties.xml \
@@ -141,13 +139,7 @@ PRODUCT_PACKAGES += \
     libVendor_ti_omx_config_parser \
     libstagefrighthw \
     libLCML \
-    libOMX.TI.Video.Decoder \
-    libOMX.TI.Video.encoder \
 
-# OMX Binaries
-PRODUCT_PACKAGES += \
-    OMXPolicyManager \
-    OMXResourceManager \
 
 # Syslink and Tiler
 PRODUCT_PACKAGES += \
@@ -267,6 +259,10 @@ PRODUCT_PACKAGES += \
 # Misc Packages
 #    safestrapmenu \
 #    2nd-init \
+
+PRODUCT_PACKAGES += \
+    Usb \
+
 
 FRAMEWORKS_BASE_SUBDIRS += \
     $(addsuffix /java, omapmmlib)

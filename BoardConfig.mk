@@ -1,10 +1,10 @@
 # Sandbox Setup: ON  ** IF YOU ARE USING THIS AND DON'T KNOW WHAT THAT MEANS: BEWARE **
 # [HASH] I like how cvpcs grouped his settings, using that!
 
-
-# Camera
+# These two variables are set first, so they can be overridden
+# by BoardConfigVendor.mk
+BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := false
-BOARD_USES_TI_CAMERA_HAL := true
 
 
 # inherit from the proprietary version
@@ -28,7 +28,7 @@ TARGET_GLOBAL_CFLAGS += -DNEEDS_ARM_ERRATA_754319_754320
 
 # Kernel
 TARGET_PREBUILT_KERNEL := device/motorola/targa/kernel
-BOARD_KERNEL_CMDLINE := 
+BOARD_KERNEL_CMDLINE := console=/dev/null rw mem=456M@0x80000000 mem=563M@0x9CC00000 vram=20M omapgpu.vram=0:4M,1:16M,2:16MT init=/init ip=off mmcparts=mmcblk1:p7(pds),p15(boot),p16(recovery),p17(cdrom),p18(misc),p19(cid),p20(kpanic),p21(system),p22(cache),p23(preinstall),p24(webtop),p25(userdata),p26(emstorage)
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_PAGE_SIZE := 0x4096
 
@@ -121,11 +121,9 @@ endif
 
 
 # Media / Radio
-BUILD_FM_RADIO := true
-BUILD_TI_FM_APPS := true
-FM_CHR_DEV_ST := true
-#PV_PLAYER := 
-#BOARD_HW_PLAYER :=
+#BUILD_FM_RADIO := true
+#BUILD_TI_FM_APPS := true
+#FM_CHR_DEV_ST := true
 
 
 # OTA Packaging
@@ -140,6 +138,7 @@ TARGET_RELEASETOOL_IMG_FROM_TARGET_SCRIPT := device/motorola/targa/releasetools/
 
 
 # Misc.
+BOARD_USES_TI_CAMERA_HAL := true
 BOARD_USE_BATTERY_CHARGE_COUNTER := true
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_NEEDS_CUTILS_LOG := true

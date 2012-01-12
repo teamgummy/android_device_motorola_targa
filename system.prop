@@ -287,5 +287,8 @@ ro.mot.internalsdcard=1
 ro.mot.dpmext=true 
 ro.com.google.clientid=android-motorola 
 ro.mot.hw.uaprof=http://uaprof.motorola.com/phoneconfig/MotoMB200/profile/MotoMB200.rdf 
-ro.build.version.full=Blur_Version.5.5.886.XT875.Verizon.en.US 
+ro.build.version.full=CM7_Version.5.5.886.XT875.Verizon.en.US 
 ro.mot.hidden_keyboards=evfwd
+
+ro.rommanager.developerid=dhacker29
+ro.modversion=CyanogenMod-7.2.0-RC0-DroidBIONIC

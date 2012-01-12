@@ -1,8 +1,8 @@
 on fs
 
 on post-fs
-    mount yaffs2 mtd@preinstall ro noatime nodiratime remount
-    mount ext3 mmc@system ro noatime nodiratime remount
+    mount yaffs2 /dev/block/system /system ro remount
+    mount ext3 /dev/block/system ro noatime nodiratime remount
 
     mount rootfs rootfs / rw remount
 

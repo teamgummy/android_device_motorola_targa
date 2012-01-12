@@ -1,13 +1,4 @@
-
-
-
-
-
 on post-fs
-
-
-
-
 
 # prepare generic keypad name
     exec /init_prep_keypad.sh
@@ -627,7 +618,7 @@ service del_panu /system/bin/sdptool remove PANU
     disabled
     oneshot
 
-service napics /system/bin/sh /system/bin/napics.sh
+service napics /system/bin/napics.sh
     class post-zygote_services
     user root
     disabled
