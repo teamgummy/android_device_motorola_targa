@@ -3,7 +3,7 @@
 #
 # rild.libpath=/system/lib/libril-moto-umts-1.so
 rild.libpath=/system/lib/libmoto_ril.so
-#rild.libargs=-d /dev/ttyO0
+rild.libargs=-d /dev/ttyO0
 ro.sf.lcd_density=240
 ro.default_usb_mode=2
 ro.mot.ril.danlist=611,*611,#611
@@ -12,6 +12,7 @@ persist.ril.ecclist=911,*911,#911
 # Enable ALWAYS_READ_IMSI_FROM_SIM
 persist.ril.features=800
 persist.ril.modem.mode =1
+
 # This defines the max event window manager can
 # handle in 1 s. We may adjust this # for performance
 # reason later
@@ -75,8 +76,7 @@ ro.HorizontalVVM=true
 ro.opengles.version = 131072
 
 # This is a high density device with more memory, so larger vm heaps for it.
-dalvik.vm.heapstartsize=5m
-dalvik.vm.heapsize=64m
+dalvik.vm.heapsize=76m
 
 # our HTML browser (not WAP browser ) does not need to specify UAProf URL
 ro.mot.hw.uaprof=http://uaprof.vtext.com/mot/xt875/xt875.xml
@@ -218,14 +218,16 @@ ril.dumpstate.timeout=60
 ro.hdcp.support=2
 
 # Mount the internal SD card, too
-ro.phone_storage = 1
-ro.additionalmounts=/mnt/emmc
+ro.additionalmounts=/mnt/sdcard
 
 #special moto usb handling
-ro.usb.use_custom_service=1
+#ro.usb.use_custom_service=1
 
 # use charge_counter for 1% battery increments
 ro.product.use_charge_counter=1
+
+# set default usb mode as usb mass storage
+ro.default_usb_mode=2
 
 #
 # ADDITIONAL_BUILD_PROPERTIES
@@ -238,11 +240,13 @@ ro.com.google.clientidbase.yt=android-verizon
 ro.kernel.android.ril=yes
 persist.ril.mux.noofchannels=10
 persist.ril.mux.ttydevice=/dev/ttyO0
-persist.ril.modem.ttydevice=/dev/ttyUSB4
+persist.ril.modem.ttydevice=/dev/usb/tty2-1:1.4
 persist.ril.tcmd.ttydevice=/dev/usb/tty2-1:1.3
+persist.ril.diag.ttydevice=/dev/usb/tty2-1:1.0
 persist.ril.features=0x90A
 persist.ril.mux.retries=500
 persist.ril.mux.sleep=2
+ril.wrigley.modem.tty=/dev/usb/tty1-2:1.10
 rild.libpath=/system/lib/moto-ril-multimode.so
 ro.default_usb_mode=0
 ro.media.enc.aud.fileformat=qcp
@@ -311,7 +315,9 @@ ro.mot.hw.uaprof=http://uaprof.motorola.com/phoneconfig/MotoMB200/profile/MotoMB
 ro.build.version.full=ICS_Version.4.0.3_r1.XT875.Verizon.en.US
 ro.mot.hidden_keyboards=evfwd
 persist.sys.usb.config=mass_storage,adb
+ro.ril.disable.power.collaspe=1
+pm.sleep_mode=1
 
 ro.rommanager.developerid=dhacker29
-ro.modversion=ICS4BIONIC
+ro.modversion=ICS4BIONIC_AOSP
 

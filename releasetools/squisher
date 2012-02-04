@@ -60,6 +60,12 @@ cd $REPACK/ota/system/app
 find ./ -name \*.apk | $XARGS $OPTICHARGER
 )
 
+# Remove unwanted Apps
+rm $REPACK/ota/system/app/FmRxApp.apk
+rm $REPACK/ota/system/app/FmService.apk
+rm $REPACK/ota/system/app/FmTxApp.apk
+rm $REPACK/ota/system/app/Music.apk
+
 
 if [ "$WANT_SQUASHFS" -eq 1 ]; then
 	squash_opts="-force-uid 1000 -force-gid 1000 -no-progress -noappend -no-exports -no-recovery"
@@ -114,7 +120,7 @@ rm -rf $REPACK/ota/recovery
 cp -f $ANDROID_BUILD_TOP/vendor/google/prebuilt/lib/libvoicesearch.so $REPACK/ota/system/lib/libvoicesearch.so
 
 # Determine what to name the new signed package
-REALDATE=`date +%F-%R`
+REALDATE=`date +%F-%H_%M`
 
 OUTFILE=$OUT/ICS-4.0.3_r1-$TARGET_PRODUCT-$REALDATE.zip
 
@@ -124,7 +130,7 @@ printf "Zipping package..."
 echo
 printf "Signing package..."
 SECURITYDIR=$ANDROID_BUILD_TOP/build/target/product/security
-java -Xmx768m \
+java -Xmx2048m \
 	-jar $ANDROID_BUILD_TOP/out/host/$OUT_TARGET_HOST/framework/signapk.jar \
 	-w $SECURITYDIR/testkey.x509.pem $SECURITYDIR/testkey.pk8 \
 	$REPACK/update.zip $OUTFILE
@@ -144,7 +150,10 @@ cat $img.md5sum
 echo
 )
 
-if [ -f ~/upload.sh ] && echo "Running upload script" || echo "You're not dhacker29 we're done"; then
+#if you want to run a custom upload script put it in ~/upload.sh
+if [ -f ~/upload.sh ];
+then
+	echo "Running upload script"
 	upload=~/upload.sh
 	. $upload
 fi
