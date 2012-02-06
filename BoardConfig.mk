@@ -45,7 +45,7 @@ BOARD_HOSTAPD_DRIVER        := CUSTOM
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := libCustomWifi
 WPA_SUPPLICANT_VERSION      := VER_0_6_X
 HOSTAPD_VERSION             := VER_0_6_X
-# FIX me BOARD_SOFTAP_DEVICE         := wl1283
+BOARD_SOFTAP_DEVICE         := wl1283
 BOARD_WLAN_DEVICE           := wl1283
 #BOARD_WLAN_TI_STA_DK_ROOT   := system/wlan/ti/wilink_6_1
 WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/tiwlan_drv.ko"
@@ -144,7 +144,7 @@ TARGET_RELEASETOOL_IMG_FROM_TARGET_SCRIPT := device/motorola/targa/releasetools/
 TARGET_CUSTOM_RELEASETOOL := ./device/motorola/targa/releasetools/squisher
 
 # Hijack
-TARGET_NEEDS_MOTOROLA_HIJACK := true
+#TARGET_NEEDS_MOTOROLA_HIJACK := true
 #BOARD_HIJACK_LOG_ENABLE := true
 
 

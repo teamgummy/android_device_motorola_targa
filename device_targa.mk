@@ -36,7 +36,9 @@ PRODUCT_COPY_FILES += \
 #PRODUCT_PACKAGES += \
 #    lights.targa \
 #    sensors.targa \
-#    IMSCServer \
+
+PRODUCT_PACKAGES += \
+    camera.omap4
 
 PRODUCT_PACKAGES += \
     audio.primary.targa \
@@ -142,7 +144,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/motorola/targa/prebuilt/app/wifi_tether_v3_1-beta11.apk:system/app/wifi_tether_v3_1-beta11.apk \
     device/motorola/targa/prebuilt/lib/libwtnativetask.so:system/lib/libwtnativetask.so \
-    device/motorola/targa/prebuilt/app/CM_Music.apk:system/app/CM_Music.apk
 
 # Rootfs files
 PRODUCT_COPY_FILES += \
@@ -200,15 +201,18 @@ PRODUCT_COPY_FILES += \
     device/motorola/targa/prebuilt/etc/hijack-boot.zip:system/etc/hijack-boot.zip \
     device/motorola/targa/prebuilt/usr/idc/cpcap-key.idc:system/usr/idc/cpcap-key.idc \
     device/motorola/targa/prebuilt/usr/idc/light-prox.idc:system/usr/idc/light-prox.idc \
+    device/motorola/targa/prebuilt/usr/idc/mapphone-switch.idc:system/usr/idc/mapphone-switch.idc \
     device/motorola/targa/prebuilt/usr/idc/omap-keypad.idc:system/usr/idc/omap-keypad.idc \
     device/motorola/targa/prebuilt/usr/idc/qtouch-touchscreen.idc:system/usr/idc/qtouch-touchscreen.idc \
     device/motorola/targa/prebuilt/usr/keychars/cpcap-key.kcm:system/usr/keychars/cpcap-key.kcm \
     device/motorola/targa/prebuilt/usr/keychars/light-prox.kcm:system/usr/keychars/light-prox.kcm \
+    device/motorola/targa/prebuilt/usr/keychars/mapphone-switch.kcm:system/usr/keychars/mapphone-switch.kcm \
     device/motorola/targa/prebuilt/usr/keychars/omap-keypad.kcm:system/usr/keychars/omap-keypad.kcm \
     device/motorola/targa/prebuilt/usr/keychars/qtouch-touchscreen.kcm:system/usr/keychars/qtouch-touchscreen.kcm \
     device/motorola/targa/prebuilt/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/motorola/targa/prebuilt/usr/keylayout/cpcap-key.kl:system/usr/keylayout/cpcap-key.kl \
     device/motorola/targa/prebuilt/usr/keylayout/light-prox.kl:system/usr/keylayout/light-prox.kl \
+    device/motorola/targa/prebuilt/usr/keylayout/mapphone-switch.kl:system/usr/keylayout/mapphone-switch.kl \
     device/motorola/targa/prebuilt/usr/keylayout/omap-keypad.kl:system/usr/keylayout/omap-keypad.kl \
     device/motorola/targa/prebuilt/usr/keylayout/qtouch-touchscreen.kl:system/usr/keylayout/qtouch-touchscreen.kl \
     device/motorola/targa/prebuilt/media/bootanimation.zip:system/media/bootanimation.zip
@@ -216,6 +220,7 @@ PRODUCT_COPY_FILES += \
 # Phone settings
 PRODUCT_COPY_FILES += \
     device/sample/etc/apns-conf_verizon.xml:system/etc/apns-conf.xml \
+    device/motorola/targa/prebuilt/etc/spn-conf.xml:system/etc/spn-conf.xml \
 
 # Graphics
 PRODUCT_COPY_FILES += \
@@ -266,7 +271,7 @@ $(call inherit-product-if-exists, vendor/verizon/verizon-vendor.mk)
 $(call inherit-product-if-exists, vendor/motorola/targa/targa-vendor.mk)
 
 # stuff common to all Motorola phones -- disabled for Sandbox
-$(call inherit-product, device/motorola/common/common_hijack.mk)
+#$(call inherit-product, device/motorola/common/common_hijack.mk)
 
 $(call inherit-product, build/target/product/full_base_telephony.mk)
 
