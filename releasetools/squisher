@@ -125,7 +125,7 @@ mv $REPACK/ota/system/app/TargaProgramMenuSystem.apk $REPACK/ota/system/app/Prog
 # Determine what to name the new signed package
 REALDATE=`date +%F-%H_%M`
 
-OUTFILE=$OUT/902-ICS-4.0.3_r1-$TARGET_PRODUCT-$REALDATE.zip
+OUTFILE=$OUT/dhacker29-MOD-ICS-4.0.3_r1-$TARGET_PRODUCT-$REALDATE.zip
 
 # Pack it up and sign
 printf "Zipping package..."
@@ -133,7 +133,7 @@ printf "Zipping package..."
 echo
 printf "Signing package..."
 SECURITYDIR=$ANDROID_BUILD_TOP/build/target/product/security
-java -Xmx2048m \
+java -Xmx1536m \
 	-jar $ANDROID_BUILD_TOP/out/host/$OUT_TARGET_HOST/framework/signapk.jar \
 	-w $SECURITYDIR/testkey.x509.pem $SECURITYDIR/testkey.pk8 \
 	$REPACK/update.zip $OUTFILE

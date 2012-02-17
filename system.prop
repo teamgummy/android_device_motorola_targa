@@ -321,7 +321,7 @@ ro.config.disable_hw_accel=true
 
 # To enable boot sounds set value to 1 and place /system/media/android_audio.mp3
 # or edit /system/bin/bootsound with the name of your audio
-ro.config.play.bootsound=0
+ro.config.play.bootsound=1
 
 ro.rommanager.developerid=dhacker29
 ro.modversion=ICS4BIONIC
