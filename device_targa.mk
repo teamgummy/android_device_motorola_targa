@@ -128,9 +128,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/motorola/targa/prebuilt/app/wifi_tether_v3_1-beta11.apk:system/app/wifi_tether_v3_1-beta11.apk \
     device/motorola/targa/prebuilt/lib/libwtnativetask.so:system/lib/libwtnativetask.so \
-    device/motorola/targa/prebuilt/bin/bootsound:system/bin/bootsound \
-#    device/motorola/targa/prebuilt/media/android_audio.mp3:system/media/android_audio.mp3 \
-#    device/motorola/targa/prebuilt/media/bootanimation.zip:system/media/bootanimation.zip \
 
 # Rootfs files
 PRODUCT_COPY_FILES += \
@@ -206,7 +203,9 @@ PRODUCT_COPY_FILES += \
 # Phone settings
 PRODUCT_COPY_FILES += \
     device/sample/etc/apns-conf_verizon.xml:system/etc/apns-conf.xml \
-    vendor/cm/prebuilt/common/etc/spn-conf.xml:system/etc/spn-conf.xml \
+    vendor/aokp/prebuilt/hdpi/bootanimation.zip:system/media/bootanimation.zip \
+
+#    vendor/cm/prebuilt/common/etc/spn-conf.xml:system/etc/spn-conf.xml \
 
 
 # Graphics
@@ -252,7 +251,6 @@ $(call inherit-product, hardware/ti/omap4xxx/omap4.mk)
 $(call inherit-product, hardware/ti/camera/camera.mk)
 $(call inherit-product, hardware/ti/wpan/ti-wpan-products.mk)
 #$(call inherit-product-if-exists, vendor/google/google-vendor.mk)
-#$(call inherit-product, hardware/ti/wpan/tools/FM/Android.mk)
 $(call inherit-product-if-exists, vendor/verizon/targa-verizon-vendor.mk)
 
 $(call inherit-product-if-exists, vendor/motorola/targa/targa-vendor.mk)
