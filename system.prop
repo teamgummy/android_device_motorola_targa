@@ -326,9 +326,6 @@ ro.config.disable_hw_accel=true
 # or edit /system/bin/bootsound with the name of your audio
 ro.config.play.bootsound=0
 
-ro.rommanager.developerid=dhacker29
-ro.modversion=ICS4BIONIC
-
 #Tweaks
 ro.kernel.android.checkjni=0
 ro.media.enc.jpeg.quality=100
