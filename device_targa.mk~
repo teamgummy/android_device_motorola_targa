@@ -194,7 +194,6 @@ PRODUCT_COPY_FILES += \
     device/motorola/targa/prebuilt/etc/wifi/tiwlan.ini:system/etc/wifi/tiwlan.ini \
     device/motorola/targa/prebuilt/etc/spn-conf.xml:system/etc/spn-conf.xml \
     device/motorola/targa/prebuilt/etc/hijack-boot.zip:system/etc/hijack-boot.zip \
-    device/motorola/targa/prebuilt/usr/bin/pm_init.sh:system/usr/bin/pm_init.sh \
     device/motorola/targa/prebuilt/usr/idc/cpcap-key.idc:system/usr/idc/cpcap-key.idc \
     device/motorola/targa/prebuilt/usr/idc/light-prox.idc:system/usr/idc/light-prox.idc \
     device/motorola/targa/prebuilt/usr/idc/mapphone-switch.idc:system/usr/idc/mapphone-switch.idc \
