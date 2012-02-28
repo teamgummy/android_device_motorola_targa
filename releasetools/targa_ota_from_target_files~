@@ -412,7 +412,7 @@ def WriteFullOTAPackage(input_zip, output_zip):
   script.Print("")
   script.Print("Don't forget to install the GApps beforey you reboot.")
   script.Print("")
-  script.Print("Finished installing Gummy, Enjoy!")
+  script.Print("Finished installing ICS4BIONIC, Enjoy!")
   device_specific.FullOTA_InstallEnd()
 
   if OPTIONS.extra_script is not None:
