@@ -94,11 +94,7 @@ PRODUCT_PACKAGES += \
 # WirelessTether
 PRODUCT_PACKAGES += wifi_tether_v3_2-pre1
 PRODUCT_COPY_FILES += \
-    device/motorola/targa/prebuilt/camerafix/TICameraCameraProperties.xml:system/etc/TICameraCameraProperties.xml \
-    device/motorola/targa/prebuilt/camerafix/camera.omap4.so:system/lib/hw/camera.omap4.so \
-    device/motorola/targa/prebuilt/camerafix/libcamera.so:system/lib/libcamera.so \
-    device/motorola/targa/prebuilt/camerafix/libomxcameraadapter.so:system/lib/libomxcameraadapter.so \
-    device/motorola/targa/prebuilt/camerafix/libtiutils.so:system/lib/libtiutils.so \
+   device/motorola/targa/prebuilt/lib/libwtnativetask.so:system/lib/libwtnativetask.so \
 
 # WirelessTether Lib
 PRODUCT_COPY_FILES += \
